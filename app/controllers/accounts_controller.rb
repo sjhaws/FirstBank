@@ -1,4 +1,7 @@
 class AccountsController < ApplicationController
+  before_action :set_account, only: [:show, :edit, :update]
+  
+  
   def index
     @accounts = current_user.accounts
   end
@@ -33,9 +36,16 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-
+    @account.destroy
   end
 
   private
-    def
+    def set_account
+      @account = current_user.accounts.find(params[:id])
+    end
+
+    def account_params
+      params.require(:account).permit(:name, :balance)
+    end
+
 end
