@@ -1,0 +1,9 @@
+<%= form_for @account do |f| %>
+  <%= f.label :name%>
+  <%= f.text_field :name, required: true, autofocus: true %>
+  <br>
+  <%= f.label :balance%>
+  <%= f.text_field :balance, required: true %>
+  <br>
+  <%= f.submit%>
+<%end%>
